@@ -30,8 +30,15 @@ const convertionType = [
 >
   <Layout>
     <section class="mb-64"></section>
-    <Input value="0" id="input" />
-    <Input value="0" id="output" />
+
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 group project-cards">
+      <li>
+        <Input value="0" id="input" />
+      </li>
+      <li>
+        <Input value="0" id="output" />
+      </li>
+      </ul>
 
     <section class="mb-6"></section>
 
@@ -42,13 +49,16 @@ const convertionType = [
       <li>
         <Dropdown options={convertionType} id="currencyConv" />
       </li>
+      <li>
+        <p class="text-neutral-400 mb-1">We are not affiliated with <a href="https://roblox.com" target="_blank" class="text-white font-medium">Roblox</a>.</p>
+      </li>
     </ul>
+
   </Layout>
 </RootLayout>
 
 <script>
-import { TRANSITION_AFTER_PREPARATION } from "astro:transitions/client";
-import Input from "../components/Input.astro";
+import { FacebookInstantGamesLeaderboard } from "phaser";
 
   document.addEventListener("astro:page-load", () => {
     const url = new URL(window.location.href);
@@ -74,13 +84,13 @@ import Input from "../components/Input.astro";
 
     function calculate() {
       const conv: any = convertion[currencyConv.textContent];
-      const conv2 = state ? conv[1] : conv[0]
-
-      var calcul = robuxConv.textContent == "Normal Robux" ? (9.99 / 800) : (105 / 30000);
       const value = state ? input.value : output.value;
 
-      calcul = state ? (value * calcul): (value / calcul);
-      calcul = state ? calcul * conv2 : calcul / conv2
+      const conv2 = robuxConv.textContent == "Normal Robux" ? conv[0] : conv[1]
+      var calcul = robuxConv.textContent == "Normal Robux" ? (9.99 / 800) : (105 / 30000);
+
+      calcul = state ? (value * calcul) : (value / calcul)
+      calcul *= conv2
 
       const valueToShow = state ? output : input;
       valueToShow.value = calcul.toFixed(3);
@@ -113,8 +123,15 @@ import Input from "../components/Input.astro";
         calculate();
       });
       
-      currencyConv.addEventListener("DOMSubtreeModified", calculate)
-      robuxConv.addEventListener("DOMSubtreeModified", calculate)
+      currencyConv.addEventListener("DOMSubtreeModified", function() {
+        state = true;
+        calculate();
+      });
+
+      robuxConv.addEventListener("DOMSubtreeModified", function() {
+        state = false;
+        calculate();
+      });
 
       const robux = getQuery("robux");
       if (getQuery("robux") == null) {

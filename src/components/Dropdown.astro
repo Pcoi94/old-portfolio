@@ -117,7 +117,12 @@ const { options, id } = Astro.props;
 </style>
 
 <script>
-  function toggleOptions(options: any, state: boolean) {
+  function toggleOptions(options: any, ul: any, state: boolean) {
+    setTimeout(
+        () => (ul.style.display = state ? "block" : "none"),
+        state ? 0 : 200,
+      );
+
     options.forEach((option: any) => {
       option.disabled = !state;
 
@@ -141,7 +146,8 @@ const { options, id } = Astro.props;
           const selectBtn: any = menu.querySelector(".select-btn");
           const sBtnText: any = menu.querySelector(".sBtn-text");
           const optionsTbl = (menu as HTMLElement).dataset.options?.split(",") || [];
-          
+          const ul = menu.querySelector('ul.options')
+
           var options: [HTMLLIElement?] = [];
 
           optionsTbl.forEach((option) => {
@@ -186,11 +192,12 @@ const { options, id } = Astro.props;
           selectBtn.onclick = () => {
             menu.classList.toggle("active");
             toggled = !toggled;
-            toggleOptions(options, toggled);
+            toggleOptions(options, ul, toggled);
           };
 
           menu.classList.remove("active");
-          toggleOptions(options, false);
+          
+          toggleOptions(options, ul, false);
           const optionTextElement = options[0]?.querySelector(
             ".option-text",
           ) as HTMLElement | null;
@@ -210,7 +217,7 @@ const { options, id } = Astro.props;
               menu.classList.remove("active");
               toggled = false;
 
-              toggleOptions(options, false);
+              toggleOptions(options, ul, false);
             };
           });
         });

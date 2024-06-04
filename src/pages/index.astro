@@ -2,6 +2,7 @@
 import ProjectCard from "../components/ProjectCard.astro";
 import RootLayout from "../layouts/RootLayout.astro";
 import Layout from "../layouts/Layout.astro";
+import Tags from "../components/Tags.astro";
 
 export const prerender = true;
 ---
@@ -18,17 +19,22 @@ export const prerender = true;
   <Layout>
     <section class="pb-36 pt-40">
       <div id="hero">
-        <h1 class="text-4xl sm:text-5xl font-bold mb-4 text-gray-300">
-          Hi, i'm <span class="text-white font-extrabold">Pcoi94</span>.
-        </h1>
-
-        <p class="text-neutral-400 text-lg max-w-xs sm:text-xl sm:max-w-md">
-          Roblox front-end & back-end developer. Contributed to <span class="text-white font-semibold">10m+</span> visits.
-        </p>
+        <div>
+          <h1 class="text-4xl sm:text-5xl font-bold mb-4 text-gray-300">
+            Hi, i'm <span class="text-white font-extrabold">Pcoi94</span>.
+          </h1>
+  
+          <p class="text-neutral-400 text-lg max-w-xs sm:text-xl sm:max-w-md">
+            Roblox front-end & back-end developer. Contributed to <span
+              class="text-white font-semibold">10m+</span> visits.
+          </p>
+        </div>
+        <span class="widget"><spline-viewer  url="https://prod.spline.design/liAJn3o4SGQ4Qtuo/scene.splinecode" /></span>
+        
       </div>
     </section>
 
-    <section class="mb-32" id="contributions">
+    <section id="contributions" class="">
       <h2 class="text-2xl font-bold mb-4 text-gray-300">
         my <span class="text-white font-extrabold">contributions</span>.
       </h2>
@@ -39,6 +45,7 @@ export const prerender = true;
             name="🚌 School Trip"
             href="https://www.roblox.com/games/start?placeId=12670802458"
           >
+            <span><Tags color="red">Interfaces</Tags><Tags color="light_blue">Front-End</Tags></span><br /><br />
             A Roblox <b>story game</b>.
           </ProjectCard>
         </li>
@@ -48,6 +55,7 @@ export const prerender = true;
             name="❄️ A Snowy Trip"
             href="https://www.roblox.com/games/start?placeId=17184518794"
           >
+          <span><Tags color="red">Interfaces</Tags><Tags color="green">Back-End</Tags><Tags color="light_blue">Front-End</Tags></span><br /><br />
             A <b>Roblox project</b> made in 14 days.
           </ProjectCard>
         </li>
@@ -57,6 +65,7 @@ export const prerender = true;
             name="🎲 Game RNG"
             href="https://www.roblox.com/games/start?placeId=17051457409"
           >
+          <span><Tags color="red">Interfaces</Tags><Tags color="green">Back-End</Tags><Tags color="light_blue">Front-End</Tags></span><br /><br />
             A <b>roblox rng</b> game that saldy didn't worked.
           </ProjectCard>
         </li>
@@ -66,11 +75,14 @@ export const prerender = true;
             name="🛍️ Marché Build"
             href="https://www.roblox.com/groups/8194141/Ro-Market#!/about"
           >
+          <span><Tags color="red">Interfaces</Tags><Tags color="green">Back-End</Tags><Tags color="light_blue">Front-End</Tags></span><br /><br />
             A french <b>roblox market</b>.
           </ProjectCard>
         </li>
       </ul>
     </section>
+
+    <div class="mb-16" />
 
     <section class="mb-32" id="projects">
       <h2 class="text-2xl font-bold mb-4 text-gray-300">
@@ -78,11 +90,9 @@ export const prerender = true;
       </h2>
       <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 group project-cards">
         <li>
-          <ProjectCard
-            name="🧮 Calculator"
-            href="/calculator"
-          >
-            A <b>Robux calculator</b>.
+          <ProjectCard name="🧮 Calculator" href="/calculator">
+            <span><Tags color="pink">Website</Tags></span><br /><br />
+            A <b>Robux & Devex</b> Calculator.
           </ProjectCard>
         </li>
 
@@ -91,21 +101,32 @@ export const prerender = true;
             name="🐾 Selection2Path"
             href="https://devforum.roblox.com/t/-/2863936/"
           >
+          <span><Tags color="orange">Plugin</Tags></span><br /><br />
             Convert <b>Selection</b> to a path.
           </ProjectCard>
         </li>
 
         <li>
           <ProjectCard
-            name="💾 Commands!"
+            name="🔧 Pcoi's Utils"
             href=""
           >
-            A plugin that create commands using your <b>CommandBar</b>.
+          <span><Tags color="dark_blue">Coming Soon</Tags><Tags color="purple">Assets</Tags></span><br /><br />
+            A <b>Github Repository</b> that contains script assets to help you <b>develop your games</b>.
           </ProjectCard>
-        </li>
-
         </li>
       </ul>
     </section>
   </Layout>
 </RootLayout>
+
+<style>
+  #hero {
+    display: flex;
+  }
+</style>
+
+<script
+  type="module"
+  src="https://unpkg.com/@splinetool/viewer@1.4.7/build/spline-viewer.js"
+></script>

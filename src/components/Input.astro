@@ -7,31 +7,38 @@ interface Props {
 const { value, id } = Astro.props;
 ---
 
-<input type="number" value={value} id={id} />
+<input type="number" value={value} id={id} class="responsive-input" />
 
 <style>
-  input {
+  .responsive-input {
     background-color: #fff;
+
+    height: 55px;
     font-size: 18px;
+
     font-weight: bold;
     color: #333;
-    height: 55px;
-    width: 475px;
-    padding: 0 16px;
-    margin: 0 5px;
-    transition:
-      outline-color 0.2s,
-      outline-width 0.2s; /* Ensure smooth transition for outline */
-    border-radius: 4px;
 
+    width: 100%;
+
+
+    padding: 0 16px;
+    transition: outline-color 0.2s, outline-width 0.2s;
+    border-radius: 8px;
     border: 1px solid #fff;
     outline: 2px solid transparent;
-
-    animation: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   }
 
-  input:focus {
+  .responsive-input:focus {
     outline: 3px solid #189ad3;
     outline-offset: 0;
+  }
+
+  @media screen and (max-width: 600px) {
+    .responsive-input {
+      width: 100%;
+      max-width: 100%;
+    }
   }
 </style>
