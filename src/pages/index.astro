@@ -23,9 +23,11 @@ import Tags from "../components/Tags.astro";
           </h1>
   
           <p class="text-neutral-400 text-lg max-w-xs sm:text-xl sm:max-w-md">
-            Roblox front-end & back-end developer. Contributed to <span
-              class="text-white font-semibold">10m+</span> visits.
+            Roblox front-end & back-end developer. Contributed to <span class="text-white font-semibold">10m+</span> visits.
           </p>
+
+          <div class="mb-8" />
+          <a href="/creations" class="inline-flex items-center text-sm font-semibold px-6 py-4 bg-neutral-950 hover:bg-neutral-900 transition rounded-md">View my creations</a>
         </div>
       </div>
     </section>
@@ -41,11 +43,11 @@ import Tags from "../components/Tags.astro";
             name="🚌 School Trip"
             href="https://www.roblox.com/games/start?placeId=12670802458"
           >
-            <span>
-              <Tags color="red">Interfaces</Tags>
-              <Tags color="light_blue">Front-End</Tags>
-            </span><br /><br />
             A Roblox <b>story game</b>.
+            <br /><br /><span>
+            <Tags color="red">Interfaces</Tags>
+            <Tags color="light_blue">Front-End</Tags>
+          </span>
           </ProjectCard>
         </li>
 
@@ -54,12 +56,12 @@ import Tags from "../components/Tags.astro";
             name="❄️ A Snowy Trip"
             href="https://www.roblox.com/games/start?placeId=17184518794"
           >
-            <span>
+            A <b>Roblox project</b> made in 14 days.
+            <br /><br /><span>
               <Tags color="red">Interfaces</Tags>
               <Tags color="green">Back-End</Tags>
               <Tags color="light_blue">Front-End</Tags>
-            </span><br /><br />
-            A <b>Roblox project</b> made in 14 days.
+            </span>
           </ProjectCard>
         </li>
 
@@ -68,12 +70,12 @@ import Tags from "../components/Tags.astro";
             name="🎲 Game RNG"
             href="https://www.roblox.com/games/start?placeId=17051457409"
           >
-            <span>
+            A <b>Roblox RNG</b> game that sadly didn't work.
+            <br /><br /><span>
               <Tags color="red">Interfaces</Tags>
               <Tags color="green">Back-End</Tags>
               <Tags color="light_blue">Front-End</Tags>
-            </span><br /><br />
-            A <b>Roblox RNG</b> game that sadly didn't work.
+            </span>
           </ProjectCard>
         </li>
 
@@ -82,12 +84,12 @@ import Tags from "../components/Tags.astro";
             name="🛍️ Marché Build"
             href="https://www.roblox.com/groups/8194141/Ro-Market#!/about"
           >
-            <span>
+            A French <b>Roblox market</b>.
+            <br /><br /><span>
               <Tags color="red">Interfaces</Tags>
               <Tags color="green">Back-End</Tags>
               <Tags color="light_blue">Front-End</Tags>
-            </span><br /><br />
-            A French <b>Roblox market</b>.
+            </span>
           </ProjectCard>
         </li>
       </ul>
@@ -97,40 +99,4 @@ import Tags from "../components/Tags.astro";
 
     <section class="mb-32" id="projects">
       <h2 class="text-2xl font-bold mb-4 text-gray-300">
-        My <span class="text-white font-extrabold">projects</span>.
-      </h2>
-      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 group project-cards">
-        <li>
-          <ProjectCard name="🧮 Calculator" href="/calculator">
-            <span><Tags color="pink">Website</Tags></span><br /><br />
-            A <b>Robux & Devex</b> Calculator.
-          </ProjectCard>
-        </li>
-
-        <li>
-          <ProjectCard
-            name="🐾 Selection2Path"
-            href="https://devforum.roblox.com/t/-/2863936/"
-          >
-            <span><Tags color="orange">Plugin</Tags></span><br /><br />
-            Convert <b>Selection</b> to a path.
-          </ProjectCard>
-        </li>
-
-        <li>
-          <ProjectCard name="🔧 Pcoi's Utils" href="">
-            <span><Tags color="dark_blue">Coming Soon</Tags>
-            <Tags color="purple">Assets</Tags></span><br /><br />
-            A <b>GitHub Repository</b> that contains script assets to help you <b>develop your games</b>.
-          </ProjectCard>
-        </li>
-      </ul>
-    </section>
-  </Layout>
-</RootLayout>
-
-<style>
-  #hero {
-    display: flex;
-  }
-</style>
+        My <span class="text-white font-extrabold">projects</sp
