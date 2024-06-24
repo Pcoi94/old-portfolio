@@ -3,6 +3,9 @@ import ProjectCard from "../components/ProjectCard.astro";
 import RootLayout from "../layouts/RootLayout.astro";
 import Layout from "../layouts/Layout.astro";
 import Tags from "../components/Tags.astro";
+
+import { Image } from "astro:assets";
+import WavingPcoi94 from "../assets/images/waving_pcoi94.png";
 ---
 
 <RootLayout
@@ -28,11 +31,20 @@ import Tags from "../components/Tags.astro";
             > visits.
           </p>
 
+          <Image
+            src={WavingPcoi94}
+            alt="Pcoi94 Waving"
+            width="400"
+            height="420"
+            id="wave"
+          />
+
           <div class="mb-8"></div>
           <a
             href="/creations"
             class="inline-flex items-center font-semibold px-6 py-4 bg-neutral-950 hover:bg-neutral-900 transition rounded-md"
-            style="font-size: 1rem">View my creations
+            style="font-size: 1rem"
+            >View my creations
           </a>
         </div>
       </div>
@@ -130,4 +142,37 @@ import Tags from "../components/Tags.astro";
   #hero {
     display: flex;
   }
+
+  #wave {
+    position: absolute;
+    display: flex;
+    top: 300px;
+    left: 70%;
+
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+  }
 </style>
+
+<script>
+  const wave: any = document.getElementById('wave');
+
+  function lerp(start: number, end: number, t: number) {
+    return start * (1 - t) + end * t;
+  }
+
+  function updateWaveSize() {
+    const windowWidth = window.innerWidth;
+    if (windowWidth >= 1000) {
+      wave.style.width = "420px"
+    } else if (windowWidth <= 700) {
+      wave.style.width = "0px"
+    } else {
+      wave.style.width = `${lerp(0, 420, (windowWidth - 700) / (1000 - 700))}px`;
+    };
+  }
+
+  updateWaveSize();
+  window.addEventListener('resize', updateWaveSize);
+
+</script>
